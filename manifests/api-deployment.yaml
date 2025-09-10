@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: forecasting-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: forecasting-api
+  template:
+    metadata:
+      labels:
+        app: forecasting-api
+    spec:
+      containers:
+      - name: api
+        image: yourrepo/forecasting-api:latest
+        ports:
+        - containerPort: 8000
